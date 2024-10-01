@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('address')->nullable(true);
             $table->string('invoice_prefix')->nullable(true);
             $table->string('invoice_number')->nullable(true);
+            $table->text('invoice_details')->nullable(true);
         });
     }
 

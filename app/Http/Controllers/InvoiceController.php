@@ -37,6 +37,7 @@ class InvoiceController extends Controller
             'address',            
             'invoice_number',            
             'invoice_prefix',            
+            'invoice_details',            
         ]);
 
         $setting = Setting::first();
@@ -84,8 +85,6 @@ class InvoiceController extends Controller
         ])
         ->json();
 
-        dd($response);
-
         $error = $response['error'] ?? false;
 
         if($error) {
@@ -105,7 +104,7 @@ class InvoiceController extends Controller
         $invoice_prefix = $setting->invoice_prefix;
         $invoice_number = $setting->invoice_number ?? str_pad(Carbon::parse($date)->format('m'), 4, 0, STR_PAD_LEFT);
         $invoice = $invoice_prefix . $invoice_number;
-        
+        $invoice_details = $setting->invoice_details ?? '';
 
 
 
@@ -119,6 +118,7 @@ class InvoiceController extends Controller
             'payment_method' => $payment_method,
             'account_details' => nl2br($account_details),
             'address' => nl2br($address),
+            'invoice_details' => $invoice_details,
         ])->setPaper([
             0,0,720,$request->input('h',2300)
         ],'portrait');

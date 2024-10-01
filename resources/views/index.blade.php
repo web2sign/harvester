@@ -32,14 +32,14 @@
         <div class="col-md-6">
           <p>
             <label for="harvest_token">Harvest Token</label>
-            <input value="{{ $harvest_token }}" name="harvest_token" id="harvest_token" type="text" class="form-control">
+            <input value="{{ $harvest_token ?? '' }}" name="harvest_token" id="harvest_token" type="text" class="form-control">
           </p>
           
         </div>
         <div class="col-md-6">
           <p>
             <label for="account_id">Account ID</label>
-            <input value="{{ $account_id }}" name="account_id" id="account_id" type="text" class="form-control">
+            <input value="{{ $account_id ?? '' }}" name="account_id" id="account_id" type="text" class="form-control">
           </p>
           
         </div>
@@ -48,14 +48,14 @@
         <div class="col-md-6">
           <p>
             <label for="rate">Rate (Euro)</label>
-            <input value="{{ $rate }}" placeholder="15" name="rate" id="rate" step="0.1" type="number" class="form-control">
+            <input value="{{ $rate ?? '' }}" placeholder="15" name="rate" id="rate" step="0.1" type="number" class="form-control">
           </p>
           
         </div>
         <div class="col-md-6">
           <p>
             <label for="payment_method">Payment Method</label>
-            <input value="{{ $payment_method }}" placeholder="Wise" name="payment_method" id="payment_method" type="text" class="form-control">
+            <input value="{{ $payment_method ?? '' }}" placeholder="Wise" name="payment_method" id="payment_method" type="text" class="form-control">
           </p>
           
         </div>
@@ -66,7 +66,7 @@
             <label for="account_details">Account Details</label>
             <textarea name="account_details" id="account_details" rows="10" class="form-control" placeholder="Bank Name: BPI
 Account Name: Roy Vincent Niepes
-Account Number: 2679 1759 15">{{ $account_details }}</textarea>
+Account Number: 2679 1759 15">{{ $account_details ?? '' }}</textarea>
           </p>
         </div>
         <div class="col-md-6">
@@ -74,7 +74,7 @@ Account Number: 2679 1759 15">{{ $account_details }}</textarea>
             <label for="address">Recipient's Address</label>
             <textarea name="address" id="address" rows="10" class="form-control" placeholder="PH7A PKG9 BLK69 L8 Bagong Silang
 1426 Caloocan City,
-Philippines">{{ $address }}</textarea>
+Philippines">{{ $address ?? '' }}</textarea>
           </p>
         </div>
       </div>
@@ -82,13 +82,21 @@ Philippines">{{ $address }}</textarea>
         <label for="invoice_number">Invoice Number</label>
         <div class="row">
           <div class="col-md-4">
-            <input value="{{ $invoice_prefix }}" name="invoice_prefix" id="invoice_prefix" type="text" class="form-control" placeholder="RLN2">
+            <input value="{{ $invoice_prefix ?? '' }}" name="invoice_prefix" id="invoice_prefix" type="text" class="form-control" placeholder="RLN2">
           </div>
           <div class="col-md-8">
-            <input value="{{ $invoice_number }}" name="invoice_number" id="invoice_number" type="text" class="form-control" placeholder="{{ str_pad(date('m'), 4, 0, STR_PAD_LEFT) }}">
+            <input value="{{ $invoice_number ?? '' }}" name="invoice_number" id="invoice_number" type="text" class="form-control" placeholder="{{ str_pad(date('m'), 4, 0, STR_PAD_LEFT) }}">
           </div>
         </div>
       </div>
+      <p>
+        <label for="invoice_details">Invoice Details</label>
+        <textarea name="invoice_details" id="invoice_details" rows="10" class="form-control" placeholder="Roy Vincent Niepes
+PH7A PKG9 BLK69 L8 Bagong Silang
+1426 Caloocan City, Philippines
+web2sign@gmail.com
+TIN: 315-745-166">{{ $invoice_details ?? '' }}</textarea>
+      </p>
       <button class="btn btn-primary" type="submit" value="update">Update Settings</button>
     </form>
     <hr>

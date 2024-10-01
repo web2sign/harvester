@@ -150,11 +150,7 @@
 								</td>
 								<td>
 									<strong>Invoice From</strong><br />
-									Roy Vincent Niepes<br />
-									PH7A PKG9 BLK69 L8 Bagong Silang<br />
-									1426 Caloocan City, Philippines<br />
-									web2sign@gmail.com<br />
-									TIN: 315-745-166
+									{!! nl2br($invoice_details) !!}
 								</td>
 							</tr>
 						</table>

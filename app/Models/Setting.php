@@ -19,6 +19,7 @@ class Setting extends Model
         'address',
         'invoice_number',
         'invoice_prefix',
+        'invoice_details',
     ];
 
 
